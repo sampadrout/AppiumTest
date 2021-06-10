@@ -37,7 +37,7 @@ public class AppTest
 
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("platformVersion", "14.5");
+        caps.setCapability("platformVersion", "14.4");
         caps.setCapability("deviceName", "iPhone SE (2nd generation)");
         caps.setCapability("automationName", "XCUITest");
 /*        caps.setCapability("platformName", "android");

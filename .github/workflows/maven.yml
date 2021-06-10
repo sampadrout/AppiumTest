@@ -23,9 +23,9 @@ jobs:
     - name: Prepare iPhone SE (2nd generation) simulator
       run: |
         sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
-        sudo ln -s /Applications/Xcode_12.5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 14.5.simruntime
+        sudo ln -s /Applications/Xcode_12.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 14.4.simruntime
         xcrun simctl list runtimes
-        xcrun simctl create custom-test-device "iPhone SE (2nd generation)" "com.apple.CoreSimulator.SimRuntime.iOS-14-5"
-        xcrun simctl list devices 14.5
+        xcrun simctl create custom-test-device "iPhone SE (2nd generation)" "com.apple.CoreSimulator.SimRuntime.iOS-14-4"
+        xcrun simctl list devices 14.4
     - name: Build with Maven
       run: mvn -B clean test --file pom.xml
