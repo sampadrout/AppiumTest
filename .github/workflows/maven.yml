@@ -26,6 +26,5 @@ jobs:
         arch: x86_64
         api-level: 29
         profile: pixel_3
-        script: ./gradlew connectedCheck
     - name: Build with Maven
       run: mvn -B clean test --file pom.xml
