@@ -24,6 +24,7 @@ jobs:
       uses: reactivecircus/android-emulator-runner@v2
       with: 
         arch: x86_64
+        api-level: 29
         profile: pixel_3
         script: ./gradlew connectedCheck
     - name: Build with Maven
