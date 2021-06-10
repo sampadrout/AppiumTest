@@ -18,7 +18,8 @@ import java.io.File;
 
 public class AppTest
 {
-    private String APP = "https://github.com/cloudgrey-io/the-app/releases/download/v1.9.0/TheApp-v1.9.0.app.zip";
+    private String ANDROID_APP = "https://github.com/cloudgrey-io/the-app/releases/download/v1.10.0/TheApp-v1.10.0.apk";
+    private String IOS_APP = "https://github.com/cloudgrey-io/the-app/releases/download/v1.10.0/TheApp-v1.10.0.app.zip";
 
     private AppiumDriver driver;
 
@@ -35,12 +36,16 @@ public class AppTest
         appium.start();
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platformName", "iOS");
+/*      caps.setCapability("platformName", "iOS");
         caps.setCapability("platformVersion", "14.5");
-            caps.setCapability("deviceName", "iPhone 8");
-        caps.setCapability("automationName", "XCUITest");
+        caps.setCapability("deviceName", "iPhone 8");
+        caps.setCapability("automationName", "XCUITest");*/
+        caps.setCapability("platformName", "android");
+        caps.setCapability("platformVersion", "10");
+        caps.setCapability("deviceName", "emulator-5554");
+        caps.setCapability("automationName", "Appium");
 
-        caps.setCapability("app", APP);
+        caps.setCapability("app", ANDROID_APP); // change the app as per caps
 
         driver = new IOSDriver<MobileElement>(appium.getUrl(), caps);
     }
