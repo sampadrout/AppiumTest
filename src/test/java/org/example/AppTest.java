@@ -42,7 +42,8 @@ public class AppTest
         caps.setCapability("automationName", "XCUITest");*/
         caps.setCapability("platformName", "android");
         caps.setCapability("platformVersion", "10");
-        caps.setCapability("deviceName", "emulator-5554");
+//        caps.setCapability("deviceName", "emulator-5554");
+        caps.setCapability("deviceName", "pixel_3");
         caps.setCapability("automationName", "Appium");
 
         caps.setCapability("app", ANDROID_APP); // change the app as per caps
