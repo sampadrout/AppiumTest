@@ -20,10 +20,12 @@ jobs:
       with:
         java-version: 8
     - run: npm install -g appium
-    - name: prepare emulator
-      uses: reactivecircus/android-emulator-runner@v2
-      with: 
-        arch: x86_64
-        api-level: 29
-        profile: pixel_3
-        script: mvn -B clean test --file pom.xml
+    - name: Prepare iPhone SE (2nd generation) simulator
+      run: |
+        sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
+        sudo ln -s /Applications/Xcode_12.5.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 14.5.simruntime
+        xcrun simctl list runtimes
+        xcrun simctl create custom-test-device "iPhone SE (2nd generation)" "com.apple.CoreSimulator.SimRuntime.iOS-14-5"
+        xcrun simctl list devices 14.5
+    - name: Build with Maven
+      run: mvn -B clean test --file pom.xml
