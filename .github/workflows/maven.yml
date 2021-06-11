@@ -25,5 +25,12 @@ jobs:
       with:
         model: 'iPhone SE (2nd generation)'
         os_version: 14.4
+    - name: prepare emulator
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        arch: x86_64
+        api-level: 29
+        profile: pixel_3
+        script: mvn clean
     - name: Build with Maven
-      run: mvn -B clean test --file pom.xml
+      run: mvn -B test --file pom.xml

@@ -36,17 +36,17 @@ public class AppTest
         appium.start();
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platformName", "iOS");
+/*        caps.setCapability("platformName", "iOS");
         caps.setCapability("platformVersion", "14.4");
         caps.setCapability("deviceName", "iPhone SE (2nd generation)");
-        caps.setCapability("automationName", "XCUITest");
-/*        caps.setCapability("platformName", "android");
+        caps.setCapability("automationName", "XCUITest");*/
+        caps.setCapability("platformName", "android");
         caps.setCapability("platformVersion", "10");
 //        caps.setCapability("deviceName", "emulator-5554");
         caps.setCapability("deviceName", "pixel_3"); // same as github workflow yml
-        caps.setCapability("automationName", "Appium");*/
+        caps.setCapability("automationName", "Appium");
 
-        caps.setCapability("app", IOS_APP); // change the app as per caps
+        caps.setCapability("app", ANDROID_APP); // change the app as per caps
 
         driver = new IOSDriver<MobileElement>(appium.getUrl(), caps);
     }
