@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: macOS-latest
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -21,11 +21,9 @@ jobs:
         java-version: 8
     - run: npm install -g appium
     - name: Prepare iPhone SE (2nd generation) simulator
-      run: |
-        sudo mkdir -p /Library/Developer/CoreSimulator/Profiles/Runtimes
-        sudo ln -s /Applications/Xcode_12.4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/CoreSimulator/Profiles/Runtimes/iOS.simruntime /Library/Developer/CoreSimulator/Profiles/Runtimes/iOS\ 14.4.simruntime
-        xcrun simctl list runtimes
-        xcrun simctl create custom-test-device "iPhone SE (2nd generation)" "com.apple.CoreSimulator.SimRuntime.iOS-14-4"
-        xcrun simctl list devices 14.4
+      uses: futureware-tech/simulator-action@v1
+      with:
+        model: 'iPhone SE (2nd generation)'
+        os_version: 14.4
     - name: Build with Maven
       run: mvn -B clean test --file pom.xml
